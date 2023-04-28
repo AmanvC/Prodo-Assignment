@@ -1,0 +1,15 @@
+.categories {
+  h1 {
+    margin: 30px 0;
+    text-align: center;
+  }
+  .category-items {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+    flex: 1;
+    //   overflow: scroll;
+  }
+}
