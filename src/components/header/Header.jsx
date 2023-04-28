@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import "./header.scss";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import { imageBaseUrl } from "../../utils/constants";
+import { useDispatch } from "react-redux";
+import { changeSelectedPage } from "../../store/slice/categoryProductsSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="header">
       <ContentWrapper>
@@ -18,7 +22,9 @@ const Header = () => {
         </div>
         <div className="right-header">
           <Link to={"/categories"}>
-            <button>Categories</button>
+            <button onClick={() => dispatch(changeSelectedPage({ page: 0 }))}>
+              Categories
+            </button>
           </Link>
         </div>
       </ContentWrapper>
