@@ -5,7 +5,7 @@ export const fetchCategoryProducts = createAsyncThunk(
   "fetchCategoryProducts",
   async ({ id, page }) => {
     const res = await makeRequest.get(
-      `/products/category/${id}?limit=10&page=${page}`
+      `/products/category/${id}?limit=12&page=${page}`
     );
     return res.data;
   }
@@ -18,7 +18,7 @@ const categoryProductSlice = createSlice({
     data: null,
     isError: false,
     selectedCategory: null,
-    page: 0,
+    page: 1,
     totalItems: 0,
     totalPages: 0,
   },
@@ -26,7 +26,7 @@ const categoryProductSlice = createSlice({
     changeSelectedPage: (state, action) => {
       state.page = action.payload.page;
     },
-    selectedCategory: (state, action) => {
+    changeSelectedCategory: (state, action) => {
       state.selectedCategory = action.payload.selectedCategory;
     },
   },
@@ -39,8 +39,8 @@ const categoryProductSlice = createSlice({
       state.data = action.payload.items;
       state.totalItems = action.payload.meta.totalItems;
       state.page = action.payload.meta.currentPage;
-      const divisor = Math.floor(action.payload.meta.totalItems / 10);
-      const remainder = action.payload.meta.totalItems % 10;
+      const divisor = Math.floor(action.payload.meta.totalItems / 12);
+      const remainder = action.payload.meta.totalItems % 12;
       const totalPages = remainder ? divisor + 1 : divisor;
       state.totalPages = totalPages;
     });
@@ -52,7 +52,7 @@ const categoryProductSlice = createSlice({
   },
 });
 
-export const { changeSelectedPage, selectedCategory } =
+export const { changeSelectedPage, changeSelectedCategory } =
   categoryProductSlice.actions;
 
 export default categoryProductSlice.reducer;
