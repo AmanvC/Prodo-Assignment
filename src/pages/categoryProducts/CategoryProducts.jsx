@@ -28,7 +28,7 @@ const CategoryProducts = () => {
       dispatch(fetchCategoryProducts({ id: id, page: page > 1 ? page : 1 }));
       dispatch(changeSelectedCategory({ selectedCategory: id }));
     }
-  }, [page]);
+  }, []);
 
   if (isLoading) {
     return <h1>Loading...</h1>;

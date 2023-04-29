@@ -33,6 +33,8 @@ const categoryProductSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchCategoryProducts.pending, (state, action) => {
       state.isLoading = true;
+      state.data = null;
+      state.isError = false;
     });
     builder.addCase(fetchCategoryProducts.fulfilled, (state, action) => {
       state.isLoading = false;
@@ -43,10 +45,12 @@ const categoryProductSlice = createSlice({
       const remainder = action.payload.meta.totalItems % 12;
       const totalPages = remainder ? divisor + 1 : divisor;
       state.totalPages = totalPages;
+      state.isError = false;
     });
     builder.addCase(fetchCategoryProducts.rejected, (state, action) => {
       console.log("ERROR", action.payload);
       state.isLoading = false;
+      state.data = null;
       state.isError = true;
     });
   },

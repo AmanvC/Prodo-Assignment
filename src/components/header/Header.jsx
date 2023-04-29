@@ -4,10 +4,18 @@ import "./header.scss";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import { imageBaseUrl } from "../../utils/constants";
 import { useDispatch } from "react-redux";
-import { changeSelectedPage } from "../../store/slice/categoryProductsSlice";
+import {
+  changeSelectedCategory,
+  changeSelectedPage,
+} from "../../store/slice/categoryProductsSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
+
+  const handleButtonClick = () => {
+    dispatch(changeSelectedPage({ page: 1 }));
+    dispatch(changeSelectedCategory({ selectedcategory: null }));
+  };
 
   return (
     <div className="header">
@@ -22,9 +30,7 @@ const Header = () => {
         </div>
         <div className="right-header">
           <Link to={"/categories"}>
-            <button onClick={() => dispatch(changeSelectedPage({ page: 0 }))}>
-              Categories
-            </button>
+            <button onClick={handleButtonClick}>Categories</button>
           </Link>
         </div>
       </ContentWrapper>
