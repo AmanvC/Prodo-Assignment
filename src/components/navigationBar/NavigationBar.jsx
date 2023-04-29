@@ -8,7 +8,7 @@ import "./navigationBar.scss";
 
 const NavigationBar = ({ totalPages, currentPage, categoryId }) => {
   const maxPageNumberLimit =
-    currentPage == 1 || currentPage == 2
+    currentPage === 1 || currentPage === 2
       ? 5
       : currentPage + 2 >= totalPages
       ? totalPages
@@ -55,11 +55,11 @@ const NavigationBar = ({ totalPages, currentPage, categoryId }) => {
         <button
           onClick={handleFirst}
           className="extra"
-          disabled={currentPage == 1}
+          disabled={currentPage === 1}
         >
           First
         </button>
-        <button onClick={handlePrevPage} disabled={currentPage == 1}>
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>
           Prev
         </button>
         {pagesArray.map(
@@ -68,20 +68,20 @@ const NavigationBar = ({ totalPages, currentPage, categoryId }) => {
             pageNumber > minPageNumberLimit - 1 && (
               <li
                 onClick={() => handleChangePageNumber(pageNumber)}
-                className={currentPage == pageNumber ? "active" : null}
+                className={currentPage === pageNumber ? "active" : null}
                 key={pageNumber}
               >
                 {pageNumber}
               </li>
             )
         )}
-        <button onClick={handleNextPage} disabled={currentPage == totalPages}>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next
         </button>
         <button
           className="extra"
           onClick={handleLast}
-          disabled={currentPage == totalPages}
+          disabled={currentPage === totalPages}
         >
           Last
         </button>

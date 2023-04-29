@@ -25,6 +25,7 @@ const Header = () => {
             <img
               className="brand"
               src={`${imageBaseUrl}/assets/img/PRODO_logo.png`}
+              alt="logo"
             />
           </Link>
         </div>

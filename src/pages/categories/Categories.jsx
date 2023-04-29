@@ -19,7 +19,7 @@ const Categories = () => {
     if (!categories) {
       dispatch(fetchCategories());
     }
-  }, []);
+  }, [categories, dispatch]);
 
   const skeletonItem = () => {
     return (

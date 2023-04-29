@@ -29,7 +29,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(fetchProductDetails({ id: productId }));
-  }, [productId]);
+  }, [productId, dispatch]);
 
   const skeletonItem = () => {
     return (

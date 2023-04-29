@@ -18,7 +18,6 @@ const CategoryProducts = () => {
     isLoading,
     data: categoryProducts,
     isError,
-    totalItems,
     totalPages,
     page,
     selectedCategory,
@@ -29,7 +28,7 @@ const CategoryProducts = () => {
       dispatch(fetchCategoryProducts({ id: id, page: page > 1 ? page : 1 }));
       dispatch(changeSelectedCategory({ selectedCategory: id }));
     }
-  }, []);
+  }, [dispatch, id, page, selectedCategory]);
 
   const skeletonItem = () => {
     return (
