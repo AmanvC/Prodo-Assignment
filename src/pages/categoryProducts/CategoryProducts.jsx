@@ -8,6 +8,7 @@ import {
 import Product from "../../components/product/Product";
 import "./categoryProducts.scss";
 import NavigationBar from "../../components/navigationBar/NavigationBar";
+import Error from "../../components/error/Error";
 
 const CategoryProducts = () => {
   const { id } = useParams();
@@ -46,7 +47,9 @@ const CategoryProducts = () => {
         Explore <span style={{ color: "var(--theme-color)" }}>Pro</span>ducts
       </h1>
       <div className="products-page">
-        {isLoading ? (
+        {isError ? (
+          <Error />
+        ) : isLoading ? (
           <div className="loading-skeleton">
             {skeletonItem()}
             {skeletonItem()}

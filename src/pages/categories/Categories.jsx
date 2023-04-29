@@ -1,15 +1,12 @@
 import { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./categories.scss";
 import Category from "../../components/category/Category";
 import { fetchCategories } from "../../store/slice/categorySlice";
-import { selectedCategory } from "../../store/slice/categoryProductsSlice";
+import Error from "../../components/error/Error";
 
 const Categories = () => {
-  // const [categories, setCategories] = useState([]);
-
   const dispatch = useDispatch();
 
   const {
@@ -39,7 +36,9 @@ const Categories = () => {
         <span style={{ color: "var(--theme-color)" }}>range</span> of{" "}
         <span style={{ color: "var(--theme-font-color)" }}>categories:</span>
       </h1>
-      {isLoading ? (
+      {isError ? (
+        <Error />
+      ) : isLoading ? (
         <div className="loading-skeleton">
           {skeletonItem()}
           {skeletonItem()}

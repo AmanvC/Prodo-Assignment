@@ -9,6 +9,7 @@ import { FaBoxes, FaRupeeSign } from "react-icons/fa";
 import "./productDetails.scss";
 import { fetchProductDetails } from "../../store/slice/productDetailSlice";
 import Img from "../../components/lazyLoadImage/Img";
+import Error from "../../components/error/Error";
 
 const ProductDetails = () => {
   const { id: productId } = useParams();
@@ -55,7 +56,9 @@ const ProductDetails = () => {
           <span>All Products</span>
         </Link>
       </div>
-      {isLoading ? (
+      {isError ? (
+        <Error />
+      ) : isLoading ? (
         <div className="loading-skeleton">{skeletonItem()}</div>
       ) : (
         <div className="details-container">

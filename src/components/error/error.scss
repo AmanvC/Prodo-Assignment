@@ -1,0 +1,25 @@
+@import "../../mixins.scss";
+
+.error {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: lightgray;
+  user-select: none;
+  gap: 10px;
+  opacity: 0.6;
+  text-align: center;
+  padding: 10px;
+
+  @include sm {
+    font-size: 1em;
+  }
+}
