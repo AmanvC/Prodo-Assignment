@@ -30,9 +30,15 @@ const CategoryProducts = () => {
     }
   }, []);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  const skeletonItem = () => {
+    return (
+      <div className="skeleton-item">
+        <div className="image-block skeleton"></div>
+        <div className="title-block skeleton"></div>
+        <div className="more-details skeleton"></div>
+      </div>
+    );
+  };
 
   return (
     <div className="category-products">
@@ -40,22 +46,39 @@ const CategoryProducts = () => {
         Explore <span style={{ color: "var(--theme-color)" }}>Pro</span>ducts
       </h1>
       <div className="products-page">
-        <div className="all-products">
-          {categoryProducts?.map((product) => (
-            <Product
-              key={product.id}
-              id={product.id}
-              name={product.productName}
-              image={product.productImages[0]}
-              // price={product.variants[0]?.price}
-            />
-          ))}
-        </div>
-        <NavigationBar
-          totalPages={totalPages}
-          currentPage={page}
-          categoryId={id}
-        />
+        {isLoading ? (
+          <div className="loading-skeleton">
+            {skeletonItem()}
+            {skeletonItem()}
+            {skeletonItem()}
+            {skeletonItem()}
+            {skeletonItem()}
+            {skeletonItem()}
+            {skeletonItem()}
+            {skeletonItem()}
+          </div>
+        ) : (
+          <>
+            <div className="all-products">
+              {categoryProducts?.map((product) => (
+                <Product
+                  key={product.id}
+                  id={product.id}
+                  name={product.productName}
+                  image={product.productImages[0]}
+                  // price={product.variants[0]?.price}
+                />
+              ))}
+            </div>
+            {categoryProducts && (
+              <NavigationBar
+                totalPages={totalPages}
+                currentPage={page}
+                categoryId={id}
+              />
+            )}
+          </>
+        )}
       </div>
     </div>
   );

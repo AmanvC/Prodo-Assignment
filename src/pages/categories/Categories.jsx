@@ -24,9 +24,13 @@ const Categories = () => {
     }
   }, []);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  const skeletonItem = () => {
+    return (
+      <div className="skeleton-item">
+        <div className="category-block skeleton"></div>
+      </div>
+    );
+  };
 
   return (
     <div className="categories">
@@ -35,17 +39,26 @@ const Categories = () => {
         <span style={{ color: "var(--theme-color)" }}>range</span> of{" "}
         <span style={{ color: "var(--theme-font-color)" }}>categories:</span>
       </h1>
-      <div className="category-items">
-        {categories?.map((category) => (
-          <Category
-            key={category.id}
-            id={category.id}
-            image={category.categoryImages[0]}
-            name={category.categoryName}
-            desc={category.description}
-          />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="loading-skeleton">
+          {skeletonItem()}
+          {skeletonItem()}
+          {skeletonItem()}
+          {skeletonItem()}
+        </div>
+      ) : (
+        <div className="category-items">
+          {categories?.map((category) => (
+            <Category
+              key={category.id}
+              id={category.id}
+              image={category.categoryImages[0]}
+              name={category.categoryName}
+              desc={category.description}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

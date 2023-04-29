@@ -3,6 +3,28 @@
     margin: 30px 0;
     text-align: center;
   }
+
+  .loading-skeleton {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+    flex: 1;
+
+    .skeleton-item {
+      width: 40%;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px gray;
+      overflow: hidden;
+
+      .category-block {
+        width: 100%;
+        aspect-ratio: 1;
+      }
+    }
+  }
   .category-items {
     display: flex;
     justify-content: center;
