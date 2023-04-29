@@ -1,3 +1,5 @@
+@import "../../mixins.scss";
+
 .category {
   width: 40%;
   aspect-ratio: 1;
@@ -8,6 +10,14 @@
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.8);
   transition: 1s;
+
+  @include md {
+    width: 47%;
+  }
+
+  @include sm {
+    width: 100%;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, 1);
@@ -57,7 +67,11 @@
 
     h1 {
       text-align: center;
-      font-size: 3.5em;
+      font-size: 3em;
+
+      @include md {
+        font-size: 2.5em;
+      }
     }
   }
 }

@@ -57,7 +57,7 @@ const NavigationBar = ({ totalPages, currentPage, categoryId }) => {
           className="extra"
           disabled={currentPage == 1}
         >
-          First page
+          First
         </button>
         <button onClick={handlePrevPage} disabled={currentPage == 1}>
           Prev
@@ -83,7 +83,7 @@ const NavigationBar = ({ totalPages, currentPage, categoryId }) => {
           onClick={handleLast}
           disabled={currentPage == totalPages}
         >
-          Last page
+          Last
         </button>
       </ul>
     </div>

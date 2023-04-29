@@ -1,3 +1,5 @@
+@import "./mixins.scss";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,6 +37,10 @@ button {
 
 .header {
   height: 100px;
+
+  @include sm {
+    height: 70px;
+  }
 }
 
 .children {

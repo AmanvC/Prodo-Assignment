@@ -1,7 +1,27 @@
+@import "../../mixins.scss";
+
 .categories {
   h1 {
     margin: 30px 0;
     text-align: center;
+
+    @include md {
+      font-size: 2em;
+    }
+  }
+
+  .category-items {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+    flex: 1;
+
+    @include md {
+      gap: 20px;
+      padding: 10px;
+    }
   }
 
   .loading-skeleton {
@@ -12,6 +32,11 @@
     flex-wrap: wrap;
     flex: 1;
 
+    @include md {
+      gap: 20px;
+      padding: 10px;
+    }
+
     .skeleton-item {
       width: 40%;
       aspect-ratio: 1;
@@ -19,19 +44,18 @@
       box-shadow: 0px 0px 10px gray;
       overflow: hidden;
 
+      @include md {
+        width: 47%;
+      }
+
+      @include sm {
+        width: 100%;
+      }
+
       .category-block {
         width: 100%;
         aspect-ratio: 1;
       }
     }
-  }
-  .category-items {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 20px;
-    flex-wrap: wrap;
-    flex: 1;
-    //   overflow: scroll;
   }
 }

@@ -67,10 +67,10 @@ const ProductDetails = () => {
             <div className="hr"></div>
             <div className="logos">
               {productDetails?.ecoFriendly && (
-                <MdEco style={{ color: "green", fontSize: "3em" }} />
+                <MdEco style={{ color: "green", fontSize: "2em" }} />
               )}
               {productDetails?.greenProduct && (
-                <GiGreenPower style={{ color: "green", fontSize: "3em" }} />
+                <GiGreenPower style={{ color: "green", fontSize: "2em" }} />
               )}
             </div>
             <div style={{ display: "flex", gap: 40 }}>

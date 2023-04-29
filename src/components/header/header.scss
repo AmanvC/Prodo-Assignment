@@ -1,9 +1,12 @@
+@import "../../mixins.scss";
+
 .header {
   box-shadow: 2px 0px 10px gray;
   position: sticky;
   top: 0;
   background-color: #fff;
   z-index: 100;
+  padding: 10px;
 
   .content-wrapper {
     display: flex;
@@ -13,6 +16,10 @@
     .left-header {
       .brand {
         height: 70px;
+
+        @include sm {
+          height: 50px;
+        }
       }
     }
 
@@ -28,6 +35,10 @@
         letter-spacing: 1px;
         text-transform: uppercase;
         transition: 0.35s background-color;
+
+        @include sm {
+          font-size: 0.9em;
+        }
 
         &:hover {
           background-color: var(--theme-color);
